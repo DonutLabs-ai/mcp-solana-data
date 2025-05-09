@@ -1,0 +1,14 @@
+{
+    "mcpServers": {
+        "agent-kit": {
+            "command": "node",
+            "env" : {
+                "RPC_URL": "your_rpc_url_here",
+                "COINGECKO_DEMO_API_KEY": "demo key here"
+            },
+            "args": [
+                "/absolute/path/to/build/index.js"
+            ]
+        }
+    }
+}

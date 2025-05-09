@@ -1,0 +1,10 @@
+onlyBuiltDependencies:
+  - bigint-buffer
+  - bufferutil
+  - keccak
+  - node-hid
+  - protobufjs
+  - secp256k1
+  - sodium-native
+  - usb
+  - utf-8-validate
