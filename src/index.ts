@@ -20,6 +20,7 @@ const agent = new SolanaAgentKit(
     process.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
     {
       COINGECKO_DEMO_API_KEY: process.env.COINGECKO_DEMO_API_KEY! || "",
+      HELIUS_API_KEY: process.env.HELIUS_API_KEY! || "",
     }
 ).use(TokenPlugin).use(MiscPlugin);
 
@@ -30,7 +31,7 @@ console.log(agent.actions);
 const finalActions = {
   TOKEN_DATA: agent.actions.find((action) => action.name === "GET_TOKEN_DATA")!,
   GET_PRICE: agent.actions.find((action) => action.name === "FETCH_PRICE")!,
-  GET_RUGCHECK: agent.actions.find((action) => action.name === "RUGCHECK")!,
+  GET_BALANCE_OWNER: agent.actions.find((action) => action.name === "TOKEN_BALANCE_ACTION")!,
   GET_TRENDING_TOKENS: agent.actions.find((action) => action.name === "GET_COINGECKO_TRENDING_TOKENS_ACTION")!,
 };
 
