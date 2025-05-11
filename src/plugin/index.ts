@@ -1,10 +1,10 @@
-import { quoteAction } from "./actions";
-import { getJupiterQuote } from "./tools";
+import { quoteAction, unsignedSwapAction } from "./actions";
+import { getJupiterQuote, getJupiterSwapUnsigned } from "./tools";
 import { SolanaAgentKit, Plugin } from "solana-agent-kit";
 const DonutPlugin = {
   name: "DonutPlugin",
-  methods: { getJupiterQuote },
-  actions: [quoteAction],
+  methods: { getJupiterQuote, getJupiterSwapUnsigned },
+  actions: [quoteAction, unsignedSwapAction],
 
   // Initialize function
   initialize: function (agent: SolanaAgentKit): void {

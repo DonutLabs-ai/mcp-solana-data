@@ -27,6 +27,7 @@ const quoteAction: Action = {
           inputToken: "So11111111111111111111111111111111111111112",
           outputToken: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
           inputAmount: 1_000_000,
+          outputAmount: 1_000_000,
         },
         explanation: "Get quote for 1 SOL for USDC",
       },

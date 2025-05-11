@@ -1,9 +1,7 @@
 {
-  "name": "agent-kit",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
+  "name": "donut-mcp",
+  "version": "0.0.1",
+  "description": "Donut MCP",
   "scripts": {
     "start": "tsx src/index.ts",
     "format": "biome format --write"

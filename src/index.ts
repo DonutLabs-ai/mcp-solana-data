@@ -48,6 +48,9 @@ const finalActions = {
   GET_JUPITER_QUOTE: agent.actions.find(
     (action) => action.name === "GET_JUPITER_QUOTE",
   )!,
+  GET_JUPITER_UNSIGNED_SWAP: agent.actions.find(
+    (action) => action.name === "GET_JUPITER_UNSIGNED_SWAP",
+  )!,
 };
 
 // Start the MCP server

@@ -1,5 +1,6 @@
-import { QuoteResponse, SwapApi, SwapInstructionsResponse } from "@jup-ag/api";
+import { QuoteResponse, SwapApi, SwapResponse } from "@jup-ag/api";
 
+// Gets quote for token swap
 export async function getJupiterQuote(
   jupiterClient: SwapApi,
   inputToken: string,
@@ -15,15 +16,16 @@ export async function getJupiterQuote(
   return quote;
 }
 
-export async function getJupiterSwap(
+// Gets unsigned swap transaction from quote
+export async function getJupiterSwapUnsigned(
   quote: QuoteResponse,
   jupiterClient: SwapApi,
   userPublicAddress: string,
-): Promise<SwapInstructionsResponse> {
-  const swap = await jupiterClient.swapInstructionsPost({
+): Promise<SwapResponse> {
+  const swap = await jupiterClient.swapPost({
     swapRequest: {
-      quoteResponse: quote,
-      userPublicKey: userPublicAddress,
+        quoteResponse: quote,
+        userPublicKey: userPublicAddress,
     },
   });
 
