@@ -1,6 +1,8 @@
 onlyBuiltDependencies:
+  - '@biomejs/biome'
   - bigint-buffer
   - bufferutil
+  - esbuild
   - keccak
   - node-hid
   - protobufjs
