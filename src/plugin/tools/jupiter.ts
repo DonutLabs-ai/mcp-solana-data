@@ -24,8 +24,8 @@ export async function getJupiterSwapUnsigned(
 ): Promise<SwapResponse> {
   const swap = await jupiterClient.swapPost({
     swapRequest: {
-        quoteResponse: quote,
-        userPublicKey: userPublicAddress,
+      quoteResponse: quote,
+      userPublicKey: userPublicAddress,
     },
   });
 
