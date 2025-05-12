@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "Donut MCP",
   "scripts": {
-    "start": "tsx src/index.ts",
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --port 8080",
     "format": "biome format --write",
     "types": "wrangler types"
   },
@@ -26,6 +25,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250510.0",
     "@types/node": "^22.15.7",
     "@biomejs/biome": "^1.9.4",
     "tsx": "^4.19.4",

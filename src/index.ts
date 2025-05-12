@@ -22,31 +22,6 @@ interface Props {
   [key: string]: unknown;
 }
 
-// Note this is a unused private key, do not use a real private key
-const keypair = Keypair.fromSecretKey(
-  bs58.decode(
-    "3py5JaxcRQAP4McHFtoarMbsSKLgT9DaxqFGNhywT4qviZ9wFbz5N9e6P6tWdLqwpD3zaABnXcXSkiRKcaCay9ec",
-  ),
-);
-const wallet = new KeypairWallet(
-  keypair,
-  process.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
-);
-
-// Create agent with plugin
-const agent = new SolanaAgentKit(
-  // Note this is a unused private key, do not use a real private key
-  wallet,
-  process.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
-  {
-    COINGECKO_DEMO_API_KEY: process.env.COINGECKO_DEMO_API_KEY! || "",
-    HELIUS_API_KEY: process.env.HELIUS_API_KEY! || "",
-  },
-)
-  .use(TokenPlugin)
-  .use(MiscPlugin)
-  .use(DonutPlugin);
-
 export class MyMCP extends McpAgent<Env, unknown, Props> {
   server = new McpServer({
     name: "Donut Solana Agent",
@@ -69,7 +44,7 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
     );
 
     // Create agent with plugin
-    const solanaAgent = new SolanaAgentKit(
+    const agent = new SolanaAgentKit(
       // Note this is a unused private key, do not use a real private key
       wallet,
       this.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
@@ -110,7 +85,7 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
         result,
         async (params) => {
           try {
-            const result = await action.handler(solanaAgent, params);
+            const result = await action.handler(agent, params);
             return {
               content: [
                 {

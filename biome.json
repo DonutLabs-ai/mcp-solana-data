@@ -10,7 +10,8 @@
       ".changeset/*",
       ".github/*",
       "node_modules/*",
-      "docs/*"
+      "docs/*",
+      "worker-configuration.d.ts"
     ]
   },
   "formatter": {
