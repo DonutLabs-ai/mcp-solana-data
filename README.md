@@ -26,7 +26,11 @@ A Model Context Protocol (MCP) Server for Solana Blockchain Data.
 pnpm install
 ```
 
-Use `dev.vars.example` for your environmental variables, by default wrangler uses `.dev.vars`
+```bash
+cp example.dev.vars .dev.vars
+```
+
+By default wrangler uses `.dev.vars` for loading environmental variables
 
 ## Run Dev Server
 
