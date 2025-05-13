@@ -1,13 +1,7 @@
 {
   "mcpServers": {
     "agent-kit": {
-      "command": "tsx",
-      "env": {
-        "RPC_URL": "your_rpc_url_here, optional",
-        "COINGECKO_DEMO_API_KEY": "demo coingecko key here, optional",
-        "HELIUS_API_KEY": "helius api key here, optional"
-      },
-      "args": ["/absolute/path/to/src/index.ts"]
+      "url": "http://localhost:8787/sse"
     }
   }
 }
