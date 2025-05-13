@@ -40,7 +40,7 @@ pnpm dev
 ```json
 {
   "mcpServers": {
-    "agent-kit": {
+    "donut-mcp": {
       "url": "http://localhost:8787/sse"
     }
   }

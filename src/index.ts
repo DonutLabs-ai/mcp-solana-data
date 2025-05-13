@@ -48,10 +48,7 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       // Note this is a unused private key, do not use a real private key
       wallet,
       this.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
-      {
-        COINGECKO_DEMO_API_KEY: process.env.COINGECKO_DEMO_API_KEY! || "",
-        HELIUS_API_KEY: process.env.HELIUS_API_KEY! || "",
-      },
+      {},
     )
       .use(TokenPlugin)
       .use(MiscPlugin)

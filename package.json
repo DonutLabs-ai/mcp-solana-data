@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Donut MCP",
   "scripts": {
-    "deploy-donut": "wrangler deploy --keep-vars",
+    "deploy-staging": "wrangler deploy --env staging",
     "dev": "wrangler dev",
     "format": "biome format --write",
     "types": "wrangler types"
