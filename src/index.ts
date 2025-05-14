@@ -5,13 +5,9 @@ import { SolanaAgentKit, KeypairWallet, Action } from "solana-agent-kit";
 import TokenPlugin from "@solana-agent-kit/plugin-token";
 import MiscPlugin from "@solana-agent-kit/plugin-misc";
 import { Keypair } from "@solana/web3.js";
-import * as dotenv from "dotenv";
 import bs58 from "bs58";
 import { DonutPlugin } from "./plugin/index";
 import { zodToMCPShape } from "@solana-agent-kit/adapter-mcp";
-
-// Load environment variables
-dotenv.config();
 
 interface Env {
   SOLANA_RPC_URL: string;
@@ -60,12 +56,16 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       TOKEN_DATA: agent.actions.find(
         (action) => action.name === "GET_TOKEN_DATA",
       )!,
+      RUGCHECK: agent.actions.find((action) => action.name === "RUGCHECK")!,
       GET_PRICE: agent.actions.find((action) => action.name === "FETCH_PRICE")!,
       GET_BALANCE_OWNER: agent.actions.find(
         (action) => action.name === "TOKEN_BALANCE_ACTION",
       )!,
       GET_TRENDING_TOKENS: agent.actions.find(
         (action) => action.name === "GET_COINGECKO_TRENDING_TOKENS_ACTION",
+      )!,
+      TRANSFER_UNSIGNED: agent.actions.find(
+        (action) => action.name === "TRANSFER_UNSIGNED",
       )!,
       GET_JUPITER_QUOTE: agent.actions.find(
         (action) => action.name === "GET_JUPITER_QUOTE",
