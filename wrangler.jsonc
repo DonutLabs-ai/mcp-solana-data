@@ -22,6 +22,10 @@
       "tag": "v1"
     }
   ],
+  "vars": {
+    "SOLANA_RPC_URL": "",
+    "COINGECKO_DEMO_API_KEY": ""
+  },
 
   /**
    * Smart Placement
@@ -64,10 +68,7 @@
           "binding": "AUTH_TOKENS",
           "id": "8735ee5657094e9cab93fadb10a97da3"
         }
-      ],
-      "vars": {
-        "RPC_URL": "https://api.mainnet-beta.solana.com"
-      }
+      ]
     }
   }
   /**

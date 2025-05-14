@@ -14,7 +14,7 @@ import { zodToMCPShape } from "@solana-agent-kit/adapter-mcp";
 dotenv.config();
 
 interface Env {
-  RPC_URL: string;
+  SOLANA_RPC_URL: string;
   COINGECKO_DEMO_API_KEY: string;
 }
 
@@ -40,15 +40,17 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
     );
     const wallet = new KeypairWallet(
       keypair,
-      this.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
+      this.env.SOLANA_RPC_URL! || "https://api.mainnet-beta.solana.com",
     );
 
     // Create agent with plugin
     const agent = new SolanaAgentKit(
       // Note this is a unused private key, do not use a real private key
       wallet,
-      this.env.RPC_URL! || "https://api.mainnet-beta.solana.com",
-      {},
+      this.env.SOLANA_RPC_URL! || "https://api.mainnet-beta.solana.com",
+      {
+        COINGECKO_DEMO_API_KEY: this.env.COINGECKO_DEMO_API_KEY! || "",
+      },
     )
       .use(TokenPlugin)
       .use(MiscPlugin)

@@ -4,6 +4,7 @@
   "description": "Donut MCP",
   "scripts": {
     "deploy-staging": "wrangler deploy --env staging",
+    "deploy-staging-secrets": "wrangler secret bulk .dev.vars.staging --env staging",
     "dev": "wrangler dev",
     "format": "biome format --write",
     "types": "wrangler types"
@@ -12,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "agents": "^0.0.84",
+    "agents": "^0.0.87",
     "@cloudflare/workers-oauth-provider": "^0.0.5",
     "@jup-ag/api": "^6.0.41",
     "@modelcontextprotocol/sdk": "^1.11.0",
@@ -21,7 +22,6 @@
     "@solana-agent-kit/plugin-token": "^2.0.4",
     "@solana/web3.js": "^1.98.0",
     "bs58": "^6.0.0",
-    "dotenv": "^16.4.7",
     "solana-agent-kit": "^2.0.4",
     "zod": "^3.24.2"
   },
