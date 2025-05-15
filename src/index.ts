@@ -73,6 +73,9 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       GET_JUPITER_UNSIGNED_SWAP: agent.actions.find(
         (action) => action.name === "GET_JUPITER_UNSIGNED_SWAP",
       )!,
+      GET_TOKEN_LIST: agent.actions.find(
+        (action) => action.name === "GET_TOKEN_LIST",
+      )!,
     };
 
     for (const [_, action] of Object.entries(finalActions)) {

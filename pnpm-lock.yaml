@@ -38,6 +38,9 @@ importers:
       bs58:
         specifier: ^6.0.0
         version: 6.0.0
+      donut-sdk:
+        specifier: 0.1.0
+        version: 0.1.0
       solana-agent-kit:
         specifier: ^2.0.4
         version: 2.0.4(bufferutil@4.0.9)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)
@@ -1355,6 +1358,10 @@ packages:
 
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
+
+  donut-sdk@0.1.0:
+    resolution: {integrity: sha512-3wvblxe7fymLMlWiyl/68nEGUY2GiQqk0dvzgU1wZcakmzRIggcJRGZm0nFBwjT7RP4Y0nYKJy8mSrBUBYTuhQ==}
+    engines: {node: '>=21.0.0'}
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
@@ -3796,6 +3803,8 @@ snapshots:
     optional: true
 
   diff-match-patch@1.0.5: {}
+
+  donut-sdk@0.1.0: {}
 
   dot-case@3.0.4:
     dependencies:

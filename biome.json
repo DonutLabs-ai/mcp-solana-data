@@ -11,7 +11,8 @@
       ".github/*",
       "node_modules/*",
       "docs/*",
-      "worker-configuration.d.ts"
+      "worker-configuration.d.ts",
+      "src/assets/*"
     ]
   },
   "formatter": {
