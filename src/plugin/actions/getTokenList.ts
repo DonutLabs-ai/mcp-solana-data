@@ -19,14 +19,14 @@ const getTokenListAction: Action = {
           status: "success",
           supportedTokens: [
             {
-              id: "2080",
-              ticker: "2080",
-              solana_address: "Dwri1iuy5pDFf2u2GwwsH2MxjR6dATyDv9En9Jk8Fkof",
+              id: "wrapped-solana",
+              ticker: "sol",
+              solana_address: "So11111111111111111111111111111111111111112",
             },
             {
-              id: "000-capital",
-              ticker: "000",
-              solana_address: "CVU6QRwpHz94UGyPFFehm1G1sFYRH7xDk9UhZ9RApump",
+              id: "raydium",
+              ticker: "ray",
+              solana_address: "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
             },
           ],
           message:
