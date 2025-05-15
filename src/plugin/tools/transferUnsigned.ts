@@ -19,6 +19,7 @@ import { SolanaAgentKit } from "solana-agent-kit";
  */
 export async function transferUnsigned(
   agent: SolanaAgentKit,
+  from: PublicKey,
   to: PublicKey,
   amount: number,
   mint?: PublicKey,
@@ -30,7 +31,7 @@ export async function transferUnsigned(
       // Transfer native SOL
       const transaction = new Transaction().add(
         SystemProgram.transfer({
-          fromPubkey: agent.wallet.publicKey,
+          fromPubkey: from,
           toPubkey: to,
           lamports: amount * LAMPORTS_PER_SOL,
         }),
@@ -43,10 +44,7 @@ export async function transferUnsigned(
     } else {
       const transaction = new Transaction();
       // Transfer SPL token
-      const fromAta = await getAssociatedTokenAddress(
-        mint,
-        agent.wallet.publicKey,
-      );
+      const fromAta = await getAssociatedTokenAddress(mint, from);
       const toAta = await getAssociatedTokenAddress(mint, to);
 
       try {
@@ -54,12 +52,7 @@ export async function transferUnsigned(
       } catch {
         // Error is thrown if the tokenAccount doesn't exist
         transaction.add(
-          createAssociatedTokenAccountInstruction(
-            agent.wallet.publicKey,
-            toAta,
-            to,
-            mint,
-          ),
+          createAssociatedTokenAccountInstruction(from, toAta, to, mint),
         );
       }
 
@@ -68,12 +61,7 @@ export async function transferUnsigned(
       const adjustedAmount = amount * Math.pow(10, mintInfo.decimals);
 
       transaction.add(
-        createTransferInstruction(
-          fromAta,
-          toAta,
-          agent.wallet.publicKey,
-          adjustedAmount,
-        ),
+        createTransferInstruction(fromAta, toAta, from, adjustedAmount),
       );
 
       const { blockhash } = await agent.connection.getLatestBlockhash();

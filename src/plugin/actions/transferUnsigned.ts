@@ -6,13 +6,12 @@ import { transferUnsigned } from "../tools";
 const transferUnsignedAction: Action = {
   name: "TRANSFER_UNSIGNED",
   similes: [
-    "send tokens",
-    "transfer funds",
-    "send money",
-    "send sol",
-    "transfer tokens",
+    "create transaction to transfer tokens",
+    "transfer funds with unsigned transaction",
+    "build transaction to send money",
+    "suggest to send sol to address",
   ],
-  description: `Transfer tokens or SOL to another address (also called as wallet address).`,
+  description: `Generate a transaction to transfer tokens or SOL to another address (also called a wallet address).`,
   examples: [
     [
       {
@@ -22,8 +21,9 @@ const transferUnsignedAction: Action = {
         },
         output: {
           status: "success",
-          message: "Transfer completed successfully",
+          message: "Transaction generated successfully",
           amount: 1,
+          sender: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
           recipient: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
           token: "SOL",
           transaction: {
@@ -99,14 +99,16 @@ const transferUnsignedAction: Action = {
     [
       {
         input: {
+          from: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
           to: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
           amount: 100,
           mint: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
         },
         output: {
           status: "success",
-          message: "Transfer completed successfully",
+          message: "Transaction generated successfully",
           amount: 100,
+          sender: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
           recipient: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
           token: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
           transaction: {
@@ -181,16 +183,19 @@ const transferUnsignedAction: Action = {
     ],
   ],
   schema: z.object({
+    from: z.string().min(32, "Invalid Solana address"),
     to: z.string().min(32, "Invalid Solana address"),
     amount: z.number().positive("Amount must be positive"),
     mint: z.string().optional(),
   }),
   handler: async (agent: SolanaAgentKit, input: Record<string, any>) => {
     const recipient = new PublicKey(input.to);
+    const sender = new PublicKey(input.from);
     const mintAddress = input.mint ? new PublicKey(input.mint) : undefined;
 
     const tx = await transferUnsigned(
       agent,
+      sender,
       recipient,
       input.amount,
       mintAddress,
@@ -198,8 +203,9 @@ const transferUnsignedAction: Action = {
 
     return {
       status: "success",
-      message: "Transfer completed successfully",
+      message: "Transaction generated successfully",
       amount: input.amount,
+      sender: input.from,
       recipient: input.to,
       token: input.mint || "SOL",
       transaction: tx,
