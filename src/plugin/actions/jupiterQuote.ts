@@ -1,6 +1,6 @@
 import { Action, SolanaAgentKit } from "solana-agent-kit";
 import { z } from "zod";
-import { getJupiterQuote } from "../tools";
+import { getJupiterQuote, supportedTokenAddress } from "../tools";
 import { createJupiterApiClient } from "@jup-ag/api";
 
 const quoteAction: Action = {
@@ -42,18 +42,32 @@ const quoteAction: Action = {
     try {
       const jupiterClient = createJupiterApiClient();
 
+      const supportedTokenOutput = supportedTokenAddress(input.outputMint);
+      const supportedTokenInput = supportedTokenAddress(input.inputMint);
+      if (!supportedTokenOutput) {
+        return {
+          status: "error",
+          message: "Invalid output mint address",
+        };
+      } else if (!supportedTokenInput) {
+        return {
+          status: "error",
+          message: "Invalid input mint address",
+        };
+      }
+
       const quote = await getJupiterQuote(
         jupiterClient,
-        input.inputMint,
-        input.outputMint,
+        supportedTokenInput,
+        supportedTokenOutput,
         input.inputAmount,
       );
 
       return {
         status: "success",
         outputToken: input.outputMint,
-        inputToken: input.inputMint,
-        inputAmount: input.inputAmount,
+        inputToken: supportedTokenInput,
+        inputAmount: supportedTokenOutput,
         outputAmount: quote.outAmount,
         message: `You will get ${quote.outAmount} of ${input.outputMint} for ${input.inputAmount} of ${input.inputMint}`,
       };

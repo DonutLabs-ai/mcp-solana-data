@@ -9,6 +9,7 @@ import {
   getJupiterSwapUnsigned,
   transferUnsigned,
   getTokenList,
+  supportedTokenAddress,
 } from "./tools";
 import { SolanaAgentKit, Plugin } from "solana-agent-kit";
 const DonutPlugin = {
@@ -18,6 +19,7 @@ const DonutPlugin = {
     getJupiterSwapUnsigned,
     transferUnsigned,
     getTokenList,
+    supportedTokenAddress,
   },
   actions: [
     quoteAction,

@@ -27,3 +27,9 @@ export function getToken(identifier: string): CoingeckoTokenId | undefined {
     return tokenFromAddress;
   }
 }
+
+// returns address from input (`name, ticker or address), note if input is address it will return the same address if supported
+export function supportedTokenAddress(id: string): string | undefined {
+  const tokenList = getToken(id);
+  return tokenList?.solana_address;
+}

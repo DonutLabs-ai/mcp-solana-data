@@ -1,6 +1,10 @@
 import { Action, SolanaAgentKit } from "solana-agent-kit";
 import { z } from "zod";
-import { getJupiterQuote, getJupiterSwapUnsigned } from "../tools";
+import {
+  getJupiterQuote,
+  getJupiterSwapUnsigned,
+  supportedTokenAddress,
+} from "../tools";
 import { createJupiterApiClient } from "@jup-ag/api";
 
 const unsignedSwapAction: Action = {
@@ -45,10 +49,24 @@ const unsignedSwapAction: Action = {
     try {
       const jupiterClient = createJupiterApiClient();
 
+      const supportedTokenOutput = supportedTokenAddress(input.outputMint);
+      const supportedTokenInput = supportedTokenAddress(input.inputMint);
+      if (!supportedTokenOutput) {
+        return {
+          status: "error",
+          message: "Invalid output mint address",
+        };
+      } else if (!supportedTokenInput) {
+        return {
+          status: "error",
+          message: "Invalid input mint address",
+        };
+      }
+
       const quote = await getJupiterQuote(
         jupiterClient,
-        input.inputMint,
-        input.outputMint,
+        supportedTokenInput,
+        supportedTokenOutput,
         input.inputAmount,
       );
 
@@ -61,8 +79,8 @@ const unsignedSwapAction: Action = {
       return {
         status: "success",
         swapTransaction: swap.swapTransaction,
-        outputToken: input.outputMint,
-        inputToken: input.inputMint,
+        outputToken: supportedTokenOutput,
+        inputToken: supportedTokenInput,
         inputAmount: input.inputAmount,
         outputAmount: quote.outAmount,
         message: `The swap transaction can be signed and sent to the network. You will get ${quote.outAmount} of ${input.outputMint} for ${input.inputAmount} of ${input.inputMint} if signed`,

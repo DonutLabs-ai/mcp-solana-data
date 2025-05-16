@@ -1,7 +1,7 @@
 import { PublicKey } from "@solana/web3.js";
 import { Action, SolanaAgentKit } from "solana-agent-kit";
 import { z } from "zod";
-import { transferUnsigned } from "../tools";
+import { transferUnsigned, supportedTokenAddress } from "../tools";
 
 const transferUnsignedAction: Action = {
   name: "TRANSFER_UNSIGNED",
@@ -11,12 +11,13 @@ const transferUnsignedAction: Action = {
     "build transaction to send money",
     "suggest to send sol to address",
   ],
-  description: `Generate a transaction to transfer tokens or SOL to another address (also called a wallet address).`,
+  description: `Generate a transaction to transfer tokens or SOL to another address (also called a wallet address). You can define the mint as an address, token name or token ticker.`,
   examples: [
     [
       {
         input: {
-          to: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
+          from: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
+          to: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
           amount: 1,
         },
         output: {
@@ -24,7 +25,7 @@ const transferUnsignedAction: Action = {
           message: "Transaction generated successfully",
           amount: 1,
           sender: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-          recipient: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
+          recipient: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
           token: "SOL",
           transaction: {
             recentBlockhash: "CpY77XgMcUaZBGn4zKgmKg6qwwEqYQUCh2Abnv7dzxvm",
@@ -100,16 +101,16 @@ const transferUnsignedAction: Action = {
       {
         input: {
           from: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-          to: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
+          to: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
           amount: 100,
-          mint: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          mint: "usdc",
         },
         output: {
           status: "success",
           message: "Transaction generated successfully",
           amount: 100,
           sender: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-          recipient: "8x2dR8Mpzuz2YqyZyZjUbYWKSWesBo5jMx2Q9Y86udVk",
+          recipient: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
           token: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
           transaction: {
             recentBlockhash: "4s8nAuLY8KiqbSJ9s22jc8AuFfFwtFodMUwJ9rBcjwVy",
@@ -129,7 +130,7 @@ const transferUnsignedAction: Action = {
                     isWritable: true,
                   },
                   {
-                    pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
+                    pubkey: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
                     isSigner: false,
                     isWritable: false,
                   },
@@ -189,27 +190,48 @@ const transferUnsignedAction: Action = {
     mint: z.string().optional(),
   }),
   handler: async (agent: SolanaAgentKit, input: Record<string, any>) => {
-    const recipient = new PublicKey(input.to);
-    const sender = new PublicKey(input.from);
-    const mintAddress = input.mint ? new PublicKey(input.mint) : undefined;
+    try {
+      const recipient = new PublicKey(input.to);
+      const sender = new PublicKey(input.from);
 
-    const tx = await transferUnsigned(
-      agent,
-      sender,
-      recipient,
-      input.amount,
-      mintAddress,
-    );
+      let mintAddress: PublicKey | undefined;
+      if (!input.mint) {
+        // this corresponds to native sol
+        mintAddress = undefined;
+      } else {
+        const mintAddressSupported = supportedTokenAddress(input.mint);
+        if (!mintAddressSupported) {
+          return {
+            status: "error",
+            message: "Invalid mint address",
+          };
+        }
+        mintAddress = new PublicKey(mintAddressSupported);
+      }
 
-    return {
-      status: "success",
-      message: "Transaction generated successfully",
-      amount: input.amount,
-      sender: input.from,
-      recipient: input.to,
-      token: input.mint || "SOL",
-      transaction: tx,
-    };
+      const tx = await transferUnsigned(
+        agent,
+        sender,
+        recipient,
+        input.amount,
+        mintAddress,
+      );
+
+      return {
+        status: "success",
+        message: "Transaction generated successfully",
+        amount: input.amount,
+        sender: input.from,
+        recipient: input.to,
+        token: mintAddress || "SOL",
+        transaction: tx,
+      };
+    } catch (error: any) {
+      return {
+        status: "error",
+        message: `failed to transfer unsigned: ${error.message}`,
+      };
+    }
   },
 };
 
