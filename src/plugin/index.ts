@@ -3,6 +3,7 @@ import {
   unsignedSwapAction,
   transferUnsignedAction,
   getTokenListAction,
+  getTokenDataBatchAction,
 } from "./actions";
 import {
   getJupiterQuote,
@@ -10,6 +11,7 @@ import {
   transferUnsigned,
   getTokenList,
   supportedTokenAddress,
+  getTokenMarketInfo,
 } from "./tools";
 import { SolanaAgentKit, Plugin } from "solana-agent-kit";
 const DonutPlugin = {
@@ -20,12 +22,14 @@ const DonutPlugin = {
     transferUnsigned,
     getTokenList,
     supportedTokenAddress,
+    getTokenMarketInfo,
   },
   actions: [
     quoteAction,
     unsignedSwapAction,
     transferUnsignedAction,
     getTokenListAction,
+    getTokenDataBatchAction,
   ],
 
   // Initialize function

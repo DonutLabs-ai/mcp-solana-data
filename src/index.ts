@@ -76,6 +76,9 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       GET_TOKEN_LIST: agent.actions.find(
         (action) => action.name === "GET_TOKEN_LIST",
       )!,
+      GET_TOKEN_MARKET_INFO_BATCH: agent.actions.find(
+        (action) => action.name === "GET_TOKEN_MARKET_INFO_BATCH",
+      )!,
     };
 
     for (const [_, action] of Object.entries(finalActions)) {

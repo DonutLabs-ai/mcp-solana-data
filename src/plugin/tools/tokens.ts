@@ -1,4 +1,9 @@
-import { CoingeckoSupportedTokens, CoingeckoTokenId } from "donut-sdk";
+import {
+  CoingeckoSupportedTokens,
+  CoingeckoTokenId,
+  CoinMarket,
+  CoingeckoPriceApi,
+} from "donut-sdk";
 import tokenList from "../../assets/tokenList.json";
 
 export function getTokenList(): CoingeckoSupportedTokens {
@@ -32,4 +37,25 @@ export function getToken(identifier: string): CoingeckoTokenId | undefined {
 export function supportedTokenAddress(id: string): string | undefined {
   const tokenList = getToken(id);
   return tokenList?.solana_address;
+}
+
+export async function getTokenMarketInfo(
+  identifiers: string[],
+  apiKey?: string,
+): Promise<CoinMarket[] | undefined> {
+  const onlyIds = identifiers.reduce<string[]>((acc, id: string) => {
+    const token = getToken(id);
+    if (token) {
+      acc.push(token.id);
+    }
+    return acc;
+  }, []);
+
+  if (onlyIds.length === 0) {
+    return undefined;
+  }
+
+  const coingeckoPriceApi = new CoingeckoPriceApi(undefined, apiKey);
+  const marketInfo = await coingeckoPriceApi.getBatchMarketInfo(onlyIds);
+  return marketInfo;
 }
