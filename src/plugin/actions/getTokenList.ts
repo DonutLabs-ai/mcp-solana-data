@@ -1,7 +1,6 @@
 import { Action, SolanaAgentKit } from "solana-agent-kit";
 import { z } from "zod";
 import { getTokenList } from "../tools";
-import { CoingeckoTokenId } from "donut-sdk";
 
 const getTokenListAction: Action = {
   name: "GET_TOKEN_LIST",
@@ -32,7 +31,8 @@ const getTokenListAction: Action = {
           message:
             "Here is the list of supported tokens with their ticker, name, and solana adress",
         },
-        explanation: "Recieve the list of supported tokens",
+        explanation:
+          "Receive the list of supported tokens, in this case only radium and wrapped solana",
       },
     ],
   ],
