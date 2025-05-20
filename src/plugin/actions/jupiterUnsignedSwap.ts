@@ -40,9 +40,9 @@ const unsignedSwapAction: Action = {
     ],
   ],
   schema: z.object({
-    outputMint: z.string().min(32, "Invalid output mint address"),
+    outputMint: z.string().max(100, "Invalid output mint address"),
     inputAmount: z.number().positive("Input amount must be positive"),
-    inputMint: z.string().min(32, "Invalid input mint address"),
+    inputMint: z.string().max(100, "Invalid input mint address"),
     publicKey: z.string().min(32, "Invalid public key"),
   }),
   handler: async (_agent: SolanaAgentKit, input: Record<string, any>) => {

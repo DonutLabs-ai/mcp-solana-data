@@ -34,9 +34,9 @@ const quoteAction: Action = {
     ],
   ],
   schema: z.object({
-    outputMint: z.string().min(32, "Invalid output mint address"),
+    outputMint: z.string().max(256, "Invalid output mint address"),
     inputAmount: z.number().positive("Input amount must be positive"),
-    inputMint: z.string().min(32, "Invalid input mint address"),
+    inputMint: z.string().max(256, "Invalid input mint address"),
   }),
   handler: async (_agent: SolanaAgentKit, input: Record<string, any>) => {
     try {
@@ -65,9 +65,9 @@ const quoteAction: Action = {
 
       return {
         status: "success",
-        outputToken: input.outputMint,
+        outputToken: supportedTokenOutput,
         inputToken: supportedTokenInput,
-        inputAmount: supportedTokenOutput,
+        inputAmount: input.inputAmount,
         outputAmount: quote.outAmount,
         message: `You will get ${quote.outAmount} of ${input.outputMint} for ${input.inputAmount} of ${input.inputMint}`,
       };
