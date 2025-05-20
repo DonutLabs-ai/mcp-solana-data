@@ -1,11 +1,9 @@
 import { McpAgent } from "agents/mcp";
-import { OAuthProvider } from "@cloudflare/workers-oauth-provider";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { SolanaAgentKit, KeypairWallet, Action } from "solana-agent-kit";
+import { SolanaAgentKit, Action, BaseWallet } from "solana-agent-kit";
 import TokenPlugin from "@solana-agent-kit/plugin-token";
 import MiscPlugin from "@solana-agent-kit/plugin-misc";
-import { Keypair } from "@solana/web3.js";
-import bs58 from "bs58";
+import { PublicKey, Transaction, VersionedTransaction } from "@solana/web3.js";
 import { DonutPlugin } from "./plugin/index";
 import { zodToMCPShape } from "@solana-agent-kit/adapter-mcp";
 
@@ -18,6 +16,25 @@ interface Props {
   [key: string]: unknown;
 }
 
+function mockWalletThrowMessaage(): any {
+  throw "mockBaseWallet cannot sign transactions";
+}
+
+/**
+ * A mock wallet implementation that cannot sign transactions
+ */
+const mockBaseWallet: BaseWallet = {
+  publicKey: PublicKey.default,
+  signTransaction: <T extends Transaction | VersionedTransaction>(_tx: T) =>
+    mockWalletThrowMessaage(),
+  signMessage: (_message: Uint8Array) => mockWalletThrowMessaage(),
+  signAllTransactions: <T extends Transaction | VersionedTransaction>(
+    _transactions: T[],
+  ) => mockWalletThrowMessaage(),
+  signAndSendTransaction: (_tx: Transaction | VersionedTransaction) =>
+    mockWalletThrowMessaage(),
+};
+
 export class MyMCP extends McpAgent<Env, unknown, Props> {
   server = new McpServer({
     name: "Donut Solana Agent",
@@ -28,21 +45,10 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
   props = this.props as Props;
 
   async init() {
-    // Note this is a unused private key, do not use a real private key
-    const keypair = Keypair.fromSecretKey(
-      bs58.decode(
-        "3py5JaxcRQAP4McHFtoarMbsSKLgT9DaxqFGNhywT4qviZ9wFbz5N9e6P6tWdLqwpD3zaABnXcXSkiRKcaCay9ec",
-      ),
-    );
-    const wallet = new KeypairWallet(
-      keypair,
-      this.env.SOLANA_RPC_URL! || "https://api.mainnet-beta.solana.com",
-    );
-
     // Create agent with plugin
     const agent = new SolanaAgentKit(
       // Note this is a unused private key, do not use a real private key
-      wallet,
+      mockBaseWallet,
       this.env.SOLANA_RPC_URL! || "https://api.mainnet-beta.solana.com",
       {
         COINGECKO_DEMO_API_KEY: this.env.COINGECKO_DEMO_API_KEY! || "",
@@ -75,8 +81,8 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       GET_TOKEN_LIST: agent.actions.find(
         (action) => action.name === "GET_TOKEN_LIST",
       )!,
-      GET_TOKEN_MARKET_INFO_BATCH: agent.actions.find(
-        (action) => action.name === "GET_TOKEN_MARKET_INFO_BATCH",
+      GET_TOKEN_INFO: agent.actions.find(
+        (action) => action.name === "GET_TOKEN_INFO",
       )!,
     };
 

@@ -1,5 +1,6 @@
 import {
   CoingeckoSupportedTokens,
+  CoingeckoTokenInfo,
   CoingeckoTokenId,
   CoinMarket,
   CoingeckoPriceApi,
@@ -31,6 +32,20 @@ export function getToken(identifier: string): CoingeckoTokenId | undefined {
   if (tokenFromAddress) {
     return tokenFromAddress;
   }
+}
+
+export async function getTokenInfo(
+  id: string,
+  apiKey?: string,
+): Promise<CoingeckoTokenInfo | undefined> {
+  const tokenApi = new CoingeckoPriceApi(undefined, apiKey);
+  const token = getToken(id);
+  if (!token) {
+    return undefined;
+  }
+
+  const tokenInfo = await tokenApi.getTokenInfo(token.id);
+  return tokenInfo;
 }
 
 // returns address from input (`name, ticker or address), note if input is address it will return the same address if supported

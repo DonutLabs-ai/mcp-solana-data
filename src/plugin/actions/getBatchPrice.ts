@@ -185,7 +185,7 @@ const getTokenDataBatchAction: Action = {
     } catch (error: any) {
       return {
         status: "error",
-        message: `failed to token list: ${error.message}`,
+        message: `failed to get list of token market info: ${error.message}`,
       };
     }
   },
