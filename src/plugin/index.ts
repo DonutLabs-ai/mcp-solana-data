@@ -5,6 +5,7 @@ import {
   getTokenListAction,
   getTokenDataBatchAction,
   getTokenInfoAction,
+  donutRugcheckAction,
 } from "./actions";
 import {
   getJupiterQuote,
@@ -14,6 +15,7 @@ import {
   supportedTokenAddress,
   getTokenMarketInfo,
   getTokenInfo,
+  donutFetchTokenDetailedReport,
 } from "./tools";
 import { SolanaAgentKit, Plugin } from "solana-agent-kit";
 const DonutPlugin = {
@@ -26,6 +28,7 @@ const DonutPlugin = {
     supportedTokenAddress,
     getTokenMarketInfo,
     getTokenInfo,
+    donutFetchTokenDetailedReport,
   },
   actions: [
     quoteAction,
@@ -34,6 +37,7 @@ const DonutPlugin = {
     getTokenListAction,
     getTokenDataBatchAction,
     getTokenInfoAction,
+    donutRugcheckAction,
   ],
 
   // Initialize function

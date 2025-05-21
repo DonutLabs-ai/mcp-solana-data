@@ -4,3 +4,4 @@ export * from "./transferUnsigned";
 export * from "./getTokenList";
 export * from "./getBatchPrice";
 export * from "./getTokenInfo";
+export * from "./rugcheck";

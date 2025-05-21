@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@cloudflare/workers-oauth-provider':
-        specifier: ^0.0.5
-        version: 0.0.5
       '@jup-ag/api':
         specifier: ^6.0.41
         version: 6.0.41
@@ -225,9 +222,6 @@ packages:
     engines: {node: '>=16'}
     cpu: [x64]
     os: [win32]
-
-  '@cloudflare/workers-oauth-provider@0.0.5':
-    resolution: {integrity: sha512-t1x5KAzsubCvb4APnJ93z407X1x7SGj/ga5ziRnwIb/iLy4PMkT/hgd1y5z7Bbsdy5Fy6mywhCP4lym24bX66w==}
 
   '@cloudflare/workers-types@4.20250510.0':
     resolution: {integrity: sha512-VLdSYUooX2QhdlzyBnnLAqa5B3xWyr5vdvya9NZk2BJNmRt2iblSLunj7iBKiW9J+SIBHz7c+kUzUJKoFLKRjg==}
@@ -2385,10 +2379,6 @@ snapshots:
 
   '@cloudflare/workerd-windows-64@1.20250507.0':
     optional: true
-
-  '@cloudflare/workers-oauth-provider@0.0.5':
-    dependencies:
-      '@cloudflare/workers-types': 4.20250510.0
 
   '@cloudflare/workers-types@4.20250510.0': {}
 

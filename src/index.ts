@@ -59,10 +59,6 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       .use(DonutPlugin);
 
     const finalActions: Record<string, Action> = {
-      TOKEN_DATA: agent.actions.find(
-        (action) => action.name === "GET_TOKEN_DATA",
-      )!,
-      RUGCHECK: agent.actions.find((action) => action.name === "RUGCHECK")!,
       GET_BALANCE_OWNER: agent.actions.find(
         (action) => action.name === "TOKEN_BALANCE_ACTION",
       )!,
@@ -86,6 +82,9 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       )!,
       GET_TOKEN_INFO: agent.actions.find(
         (action) => action.name === "GET_TOKEN_INFO",
+      )!,
+      DONUT_RUGCHECK: agent.actions.find(
+        (action) => action.name === "DONUT_RUGCHECK",
       )!,
     };
 
