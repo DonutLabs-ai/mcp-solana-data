@@ -134,6 +134,17 @@ export interface InsiderNetwork {
   activeAccounts: number;
 }
 
+export interface Verification {
+  mint: string;
+  payer: string;
+  name: string;
+  symbol: string;
+  description: string;
+  jup_verified: boolean | null;
+  jup_strict: boolean | null;
+  links: string[] | null;
+}
+
 export interface DonutRugcheckReport {
   mint: string | null;
   tokenProgram: string | null;
@@ -167,16 +178,7 @@ export interface DonutRugcheckReport {
   transferFee: TransferFee | null;
   knownAccounts: KnownAccount;
   events: [] | null;
-  verification: {
-    mint: "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R";
-    payer: "";
-    name: "Raydium";
-    symbol: "ray";
-    description: "";
-    jup_verified: true;
-    jup_strict: true;
-    links: [];
-  };
+  verification: Verification;
   graphInsidersDetected: number | null;
   insiderNetworks: InsiderNetwork[];
   detectedAt: Date | null;
