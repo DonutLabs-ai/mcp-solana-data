@@ -15,86 +15,45 @@ const transferUnsignedAction: Action = {
   examples: [
     [
       {
-        input: {
-          from: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-          to: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
-          amount: 1,
-        },
+        input: {},
         output: {
           status: "success",
           message: "Transaction generated successfully",
-          amount: 1,
-          sender: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-          recipient: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
+          amount: 0.2,
+          sender: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+          recipient: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
           token: "SOL",
           transaction: {
-            recentBlockhash: "CpY77XgMcUaZBGn4zKgmKg6qwwEqYQUCh2Abnv7dzxvm",
-            feePayer: null,
-            nonceInfo: null,
-            instructions: [
-              {
-                keys: [
-                  {
-                    pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-                    isSigner: true,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "G5WB6LRMSH3XQrazLkoacY17WDM3pZESLra1iK1q2Wk2",
-                    isSigner: false,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                  {
-                    pubkey: "So11111111111111111111111111111111111111112",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                  {
-                    pubkey: "11111111111111111111111111111111",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                  {
-                    pubkey: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                ],
-                programId: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
-                data: [],
-              },
-              {
-                keys: [
-                  {
-                    pubkey: "G5WB6LRMSH3XQrazLkoacY17WDM3pZESLra1iK1q2Wk2",
-                    isSigner: false,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "G5WB6LRMSH3XQrazLkoacY17WDM3pZESLra1iK1q2Wk2",
-                    isSigner: false,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-                    isSigner: true,
-                    isWritable: false,
-                  },
-                ],
-                programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
-                data: [3, 0, 132, 215, 23, 0, 0, 0, 0],
-              },
-            ],
-            signers: [],
+            tx: {
+              recentBlockhash: "3zF75wT133axLMuzBFgRah3Q9XvwtLntajMP9vk9Lwn3",
+              feePayer: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+              nonceInfo: null,
+              instructions: [
+                {
+                  keys: [
+                    {
+                      pubkey: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+                      isSigner: true,
+                      isWritable: true,
+                    },
+                    {
+                      pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
+                      isSigner: false,
+                      isWritable: true,
+                    },
+                  ],
+                  programId: "11111111111111111111111111111111",
+                  data: [2, 0, 0, 0, 0, 194, 235, 11, 0, 0, 0, 0],
+                },
+              ],
+              signers: ["3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ"],
+            },
+            serializedTx:
+              "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEDKRwv/lbUjzM8G6kBJUx7VvnHRwvfdMYBQk2XL4zWDN1NkLxgRs8AP0ydOGHzByWPvNjQIigr+wxHfOOevKbTFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALGFtruLO6QakQk61PBCZOAXycOBm6AMVF/KxC4LSCGQBAgIAAQwCAAAAAMLrCwAAAAA=",
           },
         },
         explanation:
-          "Unsigned Transaction to transfer 0.4 SOL to the recipient address",
+          "Unsigned Transaction to transfer 0.2 SOL, equivalently 200000000 lamports of SOL, to the recipient address",
       },
     ],
     [
@@ -109,73 +68,77 @@ const transferUnsignedAction: Action = {
           status: "success",
           message: "Transaction generated successfully",
           amount: 100,
-          sender: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-          recipient: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
+          sender: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+          recipient: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
           token: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
           transaction: {
-            recentBlockhash: "4s8nAuLY8KiqbSJ9s22jc8AuFfFwtFodMUwJ9rBcjwVy",
-            feePayer: null,
-            nonceInfo: null,
-            instructions: [
-              {
-                keys: [
-                  {
-                    pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-                    isSigner: true,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "EZQvdtF5fbXmdEaansj2cm1PbUfZ4qM2vBaM8SiKJpX7",
-                    isSigner: false,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "Gv12XDHjNsKB5Y4v4Aj7E3b74STCwd1tUo3BVqevu1BY",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                  {
-                    pubkey: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                  {
-                    pubkey: "11111111111111111111111111111111",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                  {
-                    pubkey: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
-                    isSigner: false,
-                    isWritable: false,
-                  },
-                ],
-                programId: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
-                data: [],
-              },
-              {
-                keys: [
-                  {
-                    pubkey: "EZQvdtF5fbXmdEaansj2cm1PbUfZ4qM2vBaM8SiKJpX7",
-                    isSigner: false,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "EZQvdtF5fbXmdEaansj2cm1PbUfZ4qM2vBaM8SiKJpX7",
-                    isSigner: false,
-                    isWritable: true,
-                  },
-                  {
-                    pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
-                    isSigner: true,
-                    isWritable: false,
-                  },
-                ],
-                programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
-                data: [3, 64, 66, 15, 0, 0, 0, 0, 0],
-              },
-            ],
-            signers: [],
+            tx: {
+              recentBlockhash: "FGpWKbzLfQ1N58CyJxcew7DozzSaaDUXUxFcEUwGC6cz",
+              feePayer: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+              nonceInfo: null,
+              instructions: [
+                {
+                  keys: [
+                    {
+                      pubkey: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+                      isSigner: true,
+                      isWritable: true,
+                    },
+                    {
+                      pubkey: "EZQvdtF5fbXmdEaansj2cm1PbUfZ4qM2vBaM8SiKJpX7",
+                      isSigner: false,
+                      isWritable: true,
+                    },
+                    {
+                      pubkey: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
+                      isSigner: false,
+                      isWritable: false,
+                    },
+                    {
+                      pubkey: "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+                      isSigner: false,
+                      isWritable: false,
+                    },
+                    {
+                      pubkey: "11111111111111111111111111111111",
+                      isSigner: false,
+                      isWritable: false,
+                    },
+                    {
+                      pubkey: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                      isSigner: false,
+                      isWritable: false,
+                    },
+                  ],
+                  programId: "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+                  data: [],
+                },
+                {
+                  keys: [
+                    {
+                      pubkey: "EyCZgxSqSCrDbYcbLczRVcgjccZdj4APBz8rhSgLEYyz",
+                      isSigner: false,
+                      isWritable: true,
+                    },
+                    {
+                      pubkey: "EZQvdtF5fbXmdEaansj2cm1PbUfZ4qM2vBaM8SiKJpX7",
+                      isSigner: false,
+                      isWritable: true,
+                    },
+                    {
+                      pubkey: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+                      isSigner: true,
+                      isWritable: false,
+                    },
+                  ],
+                  programId: "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+                  data: [3, 0, 225, 245, 5, 0, 0, 0, 0],
+                },
+              ],
+              signers: ["3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ"],
+            },
+            serializedTx:
+              "AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAUIKRwv/lbUjzM8G6kBJUx7VvnHRwvfdMYBQk2XL4zWDN3PjYfFd4CyCAopXbSf+gNmmOkaKIJ1RjZp7T8uHP+3Hcl1kVeO61unpSiCiuBxyxNcs/OHSFI3YrNo4zPtUkKWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABNkLxgRs8AP0ydOGHzByWPvNjQIigr+wxHfOOevKbTFYyXJY9OJInxuz0QKRSODYMLWhOZ2v8QhASOe9jb6fhZxvp6877brTo9ZfNqq8l0MbG75MLS9uDkfKYCA0UvXWEG3fbh12Whk9nL4UbO63msHLSF7V9bN5E6jPWFfv8AqdQRCzUc3prTZ7yLJr0ixc+Hg21N1j9DkYqBSfL0Y5GDAgUGAAIEBgMHAAcDAQIACQMA4fUFAAAAAA==",
           },
         },
         explanation:

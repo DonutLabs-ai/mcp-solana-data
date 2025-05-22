@@ -26,6 +26,7 @@ export async function transferUnsigned(
 ) {
   try {
     let tx: Awaited<Transaction>;
+    let serializedTx: Awaited<string>;
 
     if (!mint) {
       // Transfer native SOL
@@ -39,8 +40,12 @@ export async function transferUnsigned(
 
       const { blockhash } = await agent.connection.getLatestBlockhash();
       transaction.recentBlockhash = blockhash;
+      transaction.feePayer = from;
 
       tx = transaction;
+      serializedTx = transaction
+        .serialize({ requireAllSignatures: false })
+        .toString("base64");
     } else {
       const transaction = new Transaction();
       // Transfer SPL token
@@ -66,11 +71,15 @@ export async function transferUnsigned(
 
       const { blockhash } = await agent.connection.getLatestBlockhash();
       transaction.recentBlockhash = blockhash;
+      transaction.feePayer = from;
 
       tx = transaction;
+      serializedTx = transaction
+        .serialize({ requireAllSignatures: false })
+        .toString("base64");
     }
 
-    return tx;
+    return { tx, serializedTx };
   } catch (error: any) {
     throw new Error(`Transfer failed: ${error}`);
   }

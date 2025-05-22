@@ -12,7 +12,8 @@
       "node_modules/*",
       "docs/*",
       "worker-configuration.d.ts",
-      "src/assets/*"
+      "src/assets/*",
+      ".wrangler"
     ]
   },
   "formatter": {
