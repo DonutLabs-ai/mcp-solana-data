@@ -10,6 +10,7 @@ import { zodToMCPShape } from "@solana-agent-kit/adapter-mcp";
 interface Env {
   SOLANA_RPC_URL: string;
   COINGECKO_DEMO_API_KEY: string;
+  SOLSNIFFER_API_KEY: string;
 }
 
 interface Props {
@@ -52,6 +53,8 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       this.env.SOLANA_RPC_URL! || "https://api.mainnet-beta.solana.com",
       {
         COINGECKO_DEMO_API_KEY: this.env.COINGECKO_DEMO_API_KEY! || "",
+        // @ts-ignore
+        SOLSNIFFER_API_KEY: this.env.SOLSNIFFER_API_KEY! || "",
       },
     )
       .use(TokenPlugin)
@@ -85,6 +88,9 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       )!,
       DONUT_RUGCHECK: agent.actions.find(
         (action) => action.name === "DONUT_RUGCHECK",
+      )!,
+      SOLSNIFFER_RUGCHECK: agent.actions.find(
+        (action) => action.name === "SOLSNIFFER_RUGCHECK",
       )!,
     };
 

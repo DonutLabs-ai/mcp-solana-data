@@ -6,6 +6,7 @@ import {
   getTokenDataBatchAction,
   getTokenInfoAction,
   donutRugcheckAction,
+  solSnifferAction,
 } from "./actions";
 import {
   getJupiterQuote,
@@ -16,6 +17,7 @@ import {
   getTokenMarketInfo,
   getTokenInfo,
   donutFetchTokenDetailedReport,
+  fetchSolsnifferReport,
 } from "./tools";
 import { SolanaAgentKit, Plugin } from "solana-agent-kit";
 const DonutPlugin = {
@@ -29,6 +31,7 @@ const DonutPlugin = {
     getTokenMarketInfo,
     getTokenInfo,
     donutFetchTokenDetailedReport,
+    fetchSolsnifferReport,
   },
   actions: [
     quoteAction,
@@ -38,6 +41,7 @@ const DonutPlugin = {
     getTokenDataBatchAction,
     getTokenInfoAction,
     donutRugcheckAction,
+    solSnifferAction,
   ],
 
   // Initialize function
