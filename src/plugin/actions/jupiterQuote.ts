@@ -8,8 +8,9 @@ const quoteAction: Action = {
   similes: [
     "quote token swap",
     "estimate token swap",
-    "estimate amount of token received",
-    "quote swap sol to usdc",
+    "estimate amount of token received for this amount of another token",
+    "quote swap of 1 sol to usdc",
+    "how much usdc will I get for 1 ray",
   ],
   description: `This tool can be used to get real time quotes for token swaps (It uses Jupiter Exchange).`,
   examples: [

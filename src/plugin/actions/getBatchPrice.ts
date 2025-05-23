@@ -5,14 +5,13 @@ import { getTokenMarketInfo } from "../tools";
 const getTokenDataBatchAction: Action = {
   name: "GET_TOKEN_MARKET_INFO_BATCH",
   similes: [
-    "get token market data",
-    "get price of tokens",
-    "get market cap of tokens",
-    "get sol fully diluted vallue",
+    "get price of many tokens",
+    "what is the fully diluted value of solana, moodeng, ray, and orca",
+    "get market cap of multiple tokens",
     "get usdc and sol market information",
     "what is the price of moodeng, bonk and solana",
   ],
-  description: `This tool can be used to get the market data of tokens requested. The input is an array of token identifiers which can be a token name, ticker or address.`,
+  description: `This tool can be used to get the market data of tokens requested. This is useful for getting market data on many tokens at once. The input is an array of token identifiers which can be a token name, ticker or address.`,
   examples: [
     [
       {

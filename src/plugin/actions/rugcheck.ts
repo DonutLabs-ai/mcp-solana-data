@@ -5,13 +5,13 @@ import { donutFetchTokenDetailedReport } from "../tools";
 const donutRugcheckAction: Action = {
   name: "DONUT_RUGCHECK",
   description:
-    "Get token in depth token analysis to determine if token is a rug pull",
+    "Get token in depth token analysis to determine if token is a rug pull. This endpoint uses rugcheck.xyz as data source",
   similes: [
     "check rug pull",
     "rug pull check",
     "rug pull detector",
-    "rug pull scanner",
-    "rug pull alert",
+    "What is lp information on bonk",
+    "who are top holders of moodeng",
   ],
   examples: [
     [

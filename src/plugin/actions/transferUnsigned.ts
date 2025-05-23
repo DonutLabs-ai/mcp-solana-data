@@ -11,11 +11,15 @@ const transferUnsignedAction: Action = {
     "build transaction to send money",
     "suggest to send sol to address",
   ],
-  description: `Generate a transaction to transfer tokens or SOL to another address (also called a wallet address). You can define the mint as an address, token name or token ticker.`,
+  description: `Generate a transaction to transfer tokens or native SOL to another address (also called a wallet address). You can define the mint as an address, token name or token ticker. For native sol put no value for mint`,
   examples: [
     [
       {
-        input: {},
+        input: {
+          from: "3mUePxBaD657S5wF4w7WaDVxSWoYTaYnizdbpFwvGKgQ",
+          to: "6DnQ5LiT6Qr2z11tEmqEPyLd1ADRJpuqBdgMGR4DRr2Q",
+          amount: 0.2,
+        },
         output: {
           status: "success",
           message: "Transaction generated successfully",
