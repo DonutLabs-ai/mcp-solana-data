@@ -4,7 +4,7 @@ import { SolanaAgentKit, Action, BaseWallet } from "solana-agent-kit";
 import TokenPlugin from "@solana-agent-kit/plugin-token";
 import MiscPlugin from "@solana-agent-kit/plugin-misc";
 import { PublicKey, Transaction, VersionedTransaction } from "@solana/web3.js";
-import { DonutPlugin } from "./plugin/index";
+import { DonutPlugin } from "donut-sdk";
 import { zodToMCPShape } from "@solana-agent-kit/adapter-mcp";
 
 interface Env {

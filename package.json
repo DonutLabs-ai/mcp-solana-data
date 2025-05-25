@@ -14,22 +14,17 @@
   "license": "ISC",
   "dependencies": {
     "agents": "^0.0.87",
-    "donut-sdk": "0.1.7",
-    "@jup-ag/api": "^6.0.41",
+    "donut-sdk": "0.1.10",
     "@modelcontextprotocol/sdk": "^1.11.0",
-    "@solana-agent-kit/adapter-mcp": "^2.0.4",
-    "@solana-agent-kit/plugin-misc": "^2.0.4",
-    "@solana-agent-kit/plugin-token": "^2.0.4",
-    "@solana/web3.js": "^1.98.0",
-    "bs58": "^6.0.0",
-    "solana-agent-kit": "^2.0.5",
-    "@solana/spl-token": "^0.4.9",
-    "zod": "^3.24.2"
+    "@solana-agent-kit/adapter-mcp": "^2.0.5",
+    "@solana-agent-kit/plugin-misc": "^2.0.5",
+    "@solana-agent-kit/plugin-token": "^2.0.5",
+    "@solana/web3.js": "^1.98.2",
+    "solana-agent-kit": "^2.0.5"
   },
   "devDependencies": {
     "@types/node": "^22.15.7",
     "@biomejs/biome": "^1.9.4",
-    "tsx": "^4.19.4",
     "typescript": "^5.8.3",
     "wrangler": "^4.14.1"
   }
