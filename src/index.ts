@@ -53,8 +53,9 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       this.env.SOLANA_RPC_URL! || "https://api.mainnet-beta.solana.com",
       {
         COINGECKO_DEMO_API_KEY: this.env.COINGECKO_DEMO_API_KEY! || "",
-        // @ts-ignore
-        SOLSNIFFER_API_KEY: this.env.SOLSNIFFER_API_KEY! || "",
+        OTHER_API_KEYS: {
+          SOLSNIFFER_API_KEY: this.env.SOLSNIFFER_API_KEY! || "",
+        },
       },
     )
       .use(TokenPlugin)
