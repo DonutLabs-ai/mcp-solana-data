@@ -4,16 +4,11 @@
   "files": {
     "ignoreUnknown": false,
     "ignore": [
-      "examples/*",
-      "dist/*",
-      ".turbo/*",
-      ".changeset/*",
       ".github/*",
       "node_modules/*",
       "docs/*",
       "worker-configuration.d.ts",
-      "src/assets/*",
-      ".wrangler"
+      ".wrangler/*"
     ]
   },
   "formatter": {
@@ -26,7 +21,7 @@
     "lineWidth": 80,
     "attributePosition": "auto",
     "bracketSpacing": true,
-    "ignore": ["**/dist", "**/node_modules", "**/docs", "**/*.md"]
+    "ignore": ["**/node_modules", "**/docs", "**/*.md"]
   },
   "organizeImports": { "enabled": true },
   "linter": {
@@ -109,13 +104,7 @@
         "useValidTypeof": "error"
       }
     },
-    "ignore": [
-      "examples/**/*",
-      "src/utils/keypair.ts",
-      "test/**/*",
-      "dist/**/*",
-      "src/langchain/evals/**/*"
-    ]
+    "ignore": ["examples/**/*"]
   },
   "javascript": {
     "formatter": {
