@@ -27,8 +27,8 @@ importers:
         specifier: ^0.0.87
         version: 0.0.87(@cloudflare/workers-types@4.20250510.0)(react@19.1.0)
       donut-sdk:
-        specifier: 0.1.10
-        version: 0.1.10(@solana-agent-kit/adapter-mcp@2.0.5(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)))(@solana/spl-token@0.4.13(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@5.0.10))(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.24.4)
+        specifier: 0.1.11
+        version: 0.1.11(@solana-agent-kit/adapter-mcp@2.0.5(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)))(@solana/spl-token@0.4.13(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@5.0.10))(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.24.4)
       solana-agent-kit:
         specifier: ^2.0.5
         version: 2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)
@@ -1376,15 +1376,15 @@ packages:
   diff-match-patch@1.0.5:
     resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
 
-  donut-sdk@0.1.10:
-    resolution: {integrity: sha512-Laa6z1vz/9E455Xql9EPTmk0I4hvBYODJmVqj1Oi89C3mqZkGdD3hVoKh1mI4ToV3bsaaDUPM4GWy2Gkq85CUg==}
+  donut-sdk@0.1.11:
+    resolution: {integrity: sha512-R1Di9zThVptKFAjBgz1cujBApTrwzbYbRG04d2Yi1m5UD/3M1vBsvhkHv4ZTLE1aTrpkRMUGclGW0M799b/oDg==}
     engines: {node: '>=22.0.0', pnpm: '>=8.0.0'}
     peerDependencies:
       '@solana-agent-kit/adapter-mcp': 2.0.5
       '@solana/spl-token': ^0.4.9
       '@solana/web3.js': ^1.98.2
       solana-agent-kit: 2.0.5
-      zod: 3.24.3
+      zod: ^3.24.3
 
   dot-case@3.0.4:
     resolution: {integrity: sha512-Kv5nKlh6yRrdrGvxeJ2e5y2eRUpkUosIW4A2AS38zwSz27zu7ufDwQPi5Jhs3XAlGNetl3bmnGhQsMtkKJnj3w==}
@@ -3925,7 +3925,7 @@ snapshots:
 
   diff-match-patch@1.0.5: {}
 
-  donut-sdk@0.1.10(@solana-agent-kit/adapter-mcp@2.0.5(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)))(@solana/spl-token@0.4.13(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@5.0.10))(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.24.4):
+  donut-sdk@0.1.11(@solana-agent-kit/adapter-mcp@2.0.5(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10)))(@solana/spl-token@0.4.13(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(typescript@5.8.3)(utf-8-validate@5.0.10))(@solana/web3.js@1.98.2(bufferutil@4.0.9)(typescript@5.8.3)(utf-8-validate@5.0.10))(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))(typescript@5.8.3)(utf-8-validate@5.0.10)(zod@3.24.4):
     dependencies:
       '@jup-ag/api': 6.0.41
       '@solana-agent-kit/adapter-mcp': 2.0.5(solana-agent-kit@2.0.5(bufferutil@4.0.9)(fastestsmallesttextencoderdecoder@1.0.22)(openai@4.98.0(ws@7.5.10(bufferutil@4.0.9)(utf-8-validate@5.0.10))(zod@3.24.4))(react@19.1.0)(typescript@5.8.3)(utf-8-validate@5.0.10))
