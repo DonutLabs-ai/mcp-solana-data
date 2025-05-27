@@ -87,9 +87,6 @@ export class MyMCP extends McpAgent<Env, unknown, Props> {
       GET_TOKEN_INFO: agent.actions.find(
         (action) => action.name === "GET_TOKEN_INFO",
       )!,
-      DONUT_RUGCHECK: agent.actions.find(
-        (action) => action.name === "DONUT_RUGCHECK",
-      )!,
       SOLSNIFFER_RUGCHECK: agent.actions.find(
         (action) => action.name === "SOLSNIFFER_RUGCHECK",
       )!,

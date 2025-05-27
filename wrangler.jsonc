@@ -58,13 +58,26 @@
       },
       "observability": {
         "enabled": true
-      },
-      "kv_namespaces": [
+      }
+    },
+    "dev": {
+      "migrations": [
         {
-          "binding": "AUTH_TOKENS",
-          "id": "8735ee5657094e9cab93fadb10a97da3"
+          "new_sqlite_classes": ["MyMCP"],
+          "tag": "v1"
         }
-      ]
+      ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "class_name": "MyMCP",
+            "name": "MCP_OBJECT"
+          }
+        ]
+      },
+      "observability": {
+        "enabled": true
+      }
     }
   }
   /**

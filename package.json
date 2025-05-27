@@ -5,6 +5,8 @@
   "scripts": {
     "deploy-staging": "wrangler deploy --env staging",
     "deploy-staging-secrets": "wrangler secret bulk .dev.vars.staging --env staging",
+    "deploy-dev-secrets": "wrangler secret bulk .dev.vars.dev --env dev",
+    "deploy-dev": "wrangler deploy --env dev",
     "dev": "wrangler dev",
     "format": "biome format --write",
     "types": "wrangler types"
@@ -14,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "agents": "^0.0.87",
-    "donut-sdk": "0.1.11",
+    "donut-sdk": "0.1.12",
     "@modelcontextprotocol/sdk": "^1.11.0",
     "@solana-agent-kit/adapter-mcp": "^2.0.5",
     "@solana-agent-kit/plugin-misc": "^2.0.5",
